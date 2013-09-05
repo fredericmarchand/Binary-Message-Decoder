@@ -1,0 +1,77 @@
+Frederic Marchand
+ID#100817579
+Comp2003A3
+
+These are the tests I have ran for assignment 3:
+
+
+Test ran with data.txt:
+First off the stream of 0's and 1's is printed to make sure it is correct
+Then the program starts and the transmission starts
+The IP address is printed according to the first 4 bytes of the data file that follow STX
+Then a short message is printed following those bytes and that is followed by ETX
+Finally the number of ones if counted in the text and it is compared to the expected number of ones in the data stream
+If the 2 numbers dont match 'Error In Transmission' get outputted
+Finally the transmission ends followed by the program ending
+----------------------------------
+0000001001111111010000000001011000011011010010000100010101001100010011000100111100000011000000000001000000000100
+
+The program has started
+
+The transmission has started
+The IP address is 127.64.22.27
+The message is "HELLO"
+
+The number of ones is 18
+The expected number of ones is 16
+Error In Transmission
+
+
+The transmission has ended
+The program has ended
+-----------------------------------
+Explanation: The point of this test was to verify if the checksum comparison was 
+not correct if the error message would get outputted
+
+
+
+
+
+Test ran with data2.txt:
+First off the stream of 0's and 1's is printed to make sure it is correct
+Then the program starts and the transmission starts
+The IP address is printed according to the first 4 bytes of the data file that follow STX
+Then a short message is printed following those bytes and that is followed by ETX
+Finally the number of ones if counted in the text and it is compared to the expected number of ones in the data stream
+If the 2 numbers dont match 'Error In Transmission' get outputted, in this case the numbers match
+Finally the transmission ends followed by the program ending
+----------------------------------
+000000101001100001010111001010000001100001100111011010010110110101101101011001010011000100110000001100000010010100000011000000000010001100000100
+
+The program has started
+
+The transmission has started
+The IP address is 152.87.40.24
+The message is "gimme100%"
+
+The number of ones is 35
+The expected number of ones is 35
+
+The transmission has ended
+The program has ended
+---------------------------------
+Explanation: This test case is was used to check if the program would work correctly with 
+more digits in the data file. Also, different numbers were used for the ip address.
+This case was also used to check is the program would work correctly with the correct checksum used.
+
+Everything works like a charm, if you want to try different tests you can use the following in the given order
+
+STX: 00000010
+Add ones where you want for the IP address: 00000000000000000000000000000000 (4 bytes)
+Then make your message as short or long as you want: 00000000 (8 bits) or 0000000000000000 (16 bits)
+							 or 000000000000000000000000 (24 bits), etc
+ETX: 00000011
+checksum (put the right number or the right number of one in the text): 0000000000000000 (16 bits)
+EOT: 00000100
+
+
